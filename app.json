@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "WeForShe",
-    "slug": "WeForShe",
+    "name": "Myntra",
+    "slug": "Myntra",
+    "scheme": "Myntra",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icons/myntra.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icons/myntra.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -16,12 +17,15 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icons/myntra.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/icons/myntra.png"
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
