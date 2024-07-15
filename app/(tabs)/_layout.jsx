@@ -7,9 +7,9 @@ const TabIcon = ({icon, color, name, focused}) => {
     return (
         <View className="items-center justify-center gap-2">
             <Image
-                source = {icon}
+                source = {{ uri: icon }}
                 resizeMode="contain"
-                tintColor = {color}
+                // tintColor = {color}
                 className="w-6 h-6"
             />
             <Text className='text-xs'>
@@ -26,6 +26,7 @@ const TabsLayout = () => {
           tabBarActiveTintColor: "#FFA001",
           tabBarInactiveTintColor: "#CDCDE0",
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarStyle: {
             backgroundColor: "#fff",
             borderTopWidth: 1,
@@ -34,6 +35,7 @@ const TabsLayout = () => {
           },
         }}
       >
+       
         <Tabs.Screen name="home" 
         options={{
             title: 'Home',
@@ -41,7 +43,7 @@ const TabsLayout = () => {
             headerTintColor: '#fff',
             tabBarIcon: ({color, focused}) => (
                 <TabIcon
-                    icon={getIcons.home}
+                    icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQmMjoXbgERw9_dWdqL8V05U_0dr2SlXnz4Q&s'
                     color = {color}
                     name = "Home"
                     focused={focused}
@@ -55,9 +57,38 @@ const TabsLayout = () => {
             headerTintColor: '#fff',
             tabBarIcon: ({color, focused}) => (
                 <TabIcon
-                    icon={getIcons.tinder}
+                    icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWI4jyX6SirJEqJ1DWQT6XT1q48m311xu6Dg&s'
                     color = {color}
-                    name = "Tinder"
+                    name = "Mumble"
+                    focused={focused}
+                />
+            )
+        }} />
+       
+        <Tabs.Screen name="draw" 
+        options={{
+            title: 'draw',
+            headerStyle: { backgroundColor: '#f4511e' },
+            headerTintColor: '#fff',
+            tabBarIcon: ({color, focused}) => (
+                <TabIcon
+                    icon={getIcons.home}
+                    color = {color}
+                    name = "Draw"
+                    focused={focused}
+                />
+            )
+        }} />
+        <Tabs.Screen name="blog" 
+        options={{
+            title: 'Blog',
+            headerStyle: { backgroundColor: '#f4511e' },
+            headerTintColor: '#fff',
+            tabBarIcon: ({color, focused}) => (
+                <TabIcon
+                    icon='https://revenuearchitects.com/wp-content/uploads/2017/02/Blog_pic-1030x584.png'
+                    color = {color}
+                    name = "Blogs"
                     focused={focused}
                 />
             )
@@ -69,13 +100,14 @@ const TabsLayout = () => {
             headerTintColor: '#fff',
             tabBarIcon: ({color, focused}) => (
                 <TabIcon
-                    icon={getIcons.profile}
+                    icon='https://images.rawpixel.com/image_png_social_square/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNjA5LXNvbGlkaWNvbi13LTAwMi1wLnBuZw.png'
                     color = {color}
                     name = "Profile"
                     focused={focused}
                 />
             )
         }} />
+        
     </Tabs>
     </>
   )

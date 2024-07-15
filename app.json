@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Myntra",
-    "slug": "Myntra",
-    "scheme": "Myntra",
+    "slug": "myntra",
+    "scheme": "myntra",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icons/myntra.png",
@@ -13,19 +13,29 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sanchita14.myntra"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/myntra.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.sanchita14.myntra"
     },
     "web": {
       "favicon": "./assets/icons/myntra.png"
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e4f480df-7871-4564-a230-0a03009ffee5"
+      }
+    }
   }
 }
