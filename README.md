@@ -67,7 +67,8 @@ The following will show up in the terminal, to run the app, install expo/ expo g
 
 ![image](https://github.com/user-attachments/assets/cc35e5a0-4ba6-43bb-98ad-cbd2ed537467)
 
-Then scan the above qr code(the one which will show up in your terminal)
+Firstly press s to switch to expo go
+Then scan the newly shown qr code(the one which will show up in your terminal)
 The app will start running on your phone.
 
 ## Usage
