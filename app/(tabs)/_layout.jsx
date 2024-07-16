@@ -1,7 +1,6 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
 import {Tabs, Redirect} from 'expo-router'
-import getIcons from '../../constants/icons'
 
 const TabIcon = ({icon, color, name, focused}) => {
     return (
@@ -9,7 +8,6 @@ const TabIcon = ({icon, color, name, focused}) => {
             <Image
                 source = {{ uri: icon }}
                 resizeMode="contain"
-                // tintColor = {color}
                 className="w-6 h-6"
             />
             <Text className='text-xs'>
@@ -65,16 +63,16 @@ const TabsLayout = () => {
             )
         }} />
        
-        <Tabs.Screen name="draw" 
+        <Tabs.Screen name="explore" 
         options={{
-            title: 'draw',
+            title: 'Explore',
             headerStyle: { backgroundColor: '#f4511e' },
             headerTintColor: '#fff',
             tabBarIcon: ({color, focused}) => (
                 <TabIcon
-                    icon={getIcons.home}
+                    icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBJt6ae_wcgPHZ88ERhEjFwZqn_5lhvxYv1g&s'
                     color = {color}
-                    name = "Draw"
+                    name = "Explore"
                     focused={focused}
                 />
             )
