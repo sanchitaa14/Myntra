@@ -41,7 +41,7 @@ Our mission is to transform retail growth for the Gen Z audience by leveraging s
      - **Impact**: Attracts trend-conscious Gen Z users and enhances the app’s relevance.
 
 
-### _Installation_
+## Installation
 
 
 **Prerequisites**: Ensure you have Node.js and npm installed on your machine.
