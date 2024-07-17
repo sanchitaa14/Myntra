@@ -1,29 +1,65 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { SplashScreen, Slot, Stack } from 'expo-router'
+import React from 'react';
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import BlogDetailScreen from './blogDetail';
-import BlogScreen from './(tabs)/blog';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import StoreSelection from './index';
+import ProductDetailScreen from './screens/ProductDetail';
+import PointsScreen from './screens/PointsScreen';
+import OutfitDetails from './screens/OutfitDetails';
+import ProfileScreen from './screens/ProfileScreen';
+import AddOutfitScreen from './screens/AddOutfitScreen';
+import Home from './(tabs)/home';
 
-// SplashScreen.preventAutoHideAsync();
+const Stack = createNativeStackNavigator();
 
 const RootLayout = () => {
   return (
-    <Stack>
-      <Stack.Screen name="index"
-        options={{ headerShown: false }} />
+    // <NavigationContainer>
+      <Stack.Navigator initialRouteName="index">
+        <Stack.Screen
+          name="index"
+          component={StoreSelection}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ProductDetail"
+          component={ProductDetailScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Points"
+          component={PointsScreen}
+        />
+        <Stack.Screen
+          name="home"
+          component={Home}
+        />
+        <Stack.Screen
+          name="OutfitDetails"
+          component={OutfitDetails}
+        />
+        <Stack.Screen
+          name="AddOutfit"
+          component={AddOutfitScreen}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{
+            headerTitle: () => <ProTitle />,
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#fff',
+            },
+          }}
+        />
+      </Stack.Navigator>
+    // </NavigationContainer>
+  );
+};
 
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Blog">
-          <Stack.Screen name="blog" component={BlogScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="BlogDetail" component={BlogDetailScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Stack>
+const ProTitle = () => (
+  <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#000' }}>Profile Section</Text>
+);
 
-  ) //basically renders the current child route
-}
-
-export default RootLayout
-//you can use slot or stack
+export default RootLayout;
