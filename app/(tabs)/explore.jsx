@@ -26,7 +26,10 @@ const DATA = [
 
 const HomeScreen = () => {
   const renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
+    <TouchableOpacity
+      style={styles.itemContainer}
+      onPress={() => navigation.navigate('ProductDetail', { item })}
+    >
       <Image source={{ uri: item.image }} style={styles.image} />
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.description}>{item.description}</Text>
@@ -36,7 +39,7 @@ const HomeScreen = () => {
         <Text style={styles.rating}>{item.rating}</Text>
         <Text style={styles.reviews}>★ {item.reviews}</Text>
       </View>
-    </View>
+      </TouchableOpacity>
   );
 
   return (

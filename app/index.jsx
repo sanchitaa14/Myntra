@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
-import { Link } from 'expo-router';
+
 const stores = [
   {
     id: '1',
@@ -23,6 +23,12 @@ const stores = [
 ];
 
 const StoreSelection = () => {
+  const navigateToHome = () => {
+    // Navigate to home screen or perform desired navigation action
+    navigation.navigate('Home');
+    console.log('Navigating to Home');
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -32,15 +38,12 @@ const StoreSelection = () => {
       />
       <Text style={styles.headerText}>Select Your Store</Text>
       {stores.map(store => (
-        <TouchableOpacity key={store.id} style={styles.storeContainer}>
+        <TouchableOpacity key={store.id} style={styles.storeContainer} onPress={navigateToHome}>
           <ImageBackground source={{ uri: store.image }} style={styles.storeImage}>
             <View style={styles.overlay}>
-              <Link href="/home">
               <Text style={styles.storeName}>{store.name}</Text>
-              </Link>
               <Text style={styles.storeDescription}>{store.description}</Text>
               <Text style={styles.enterText}>Enter Store →</Text>
-             
             </View>
           </ImageBackground>
         </TouchableOpacity>
