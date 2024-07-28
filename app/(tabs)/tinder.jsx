@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, SafeAreaView, TouchableOpacity,Text } from 're
 import SwipeCards from 'react-native-swipe-cards';
 import { useNavigation } from '@react-navigation/native';
 import SavedCard from '../screens/SavedCard';
-
+import { Link } from 'expo-router';
 import { LogBox } from 'react-native';
 import AddIcon from '../assets/add.png';
 import ShareIcon from '../assets/share.png'; 
@@ -100,7 +100,8 @@ const Tinder = () => {
   };
   
   const handleprofile = () => {
-    navigation.navigate('Profile')
+    // navigation.navigate('Profile')
+    <Link href ="/ProfileScreen"/>
   };
 
   const handleAdd = () => {
@@ -129,24 +130,32 @@ const Tinder = () => {
       
       
       <TouchableOpacity onPress={handleAdd} style={[styles.largeButton, styles.centerButton]}>
+      <Link href ="../screens/AddOutfitScreen">
         <View style={styles.largebuttonContainer}>
           <Image source={AddIcon} style={[styles.icon, styles.largeIcon]} />
         </View>
+        </Link>
       </TouchableOpacity>
 
       
       <TouchableOpacity onPress={handlePoints} style={[styles.largeButton, styles.bottomleftButton]}>
+      <Link href ="../screens/PointsScreen">
         <View style={styles.largebuttonContainer}>
           <Image source={PointsIcon} style={[styles.icon, styles.largeIcon]} />
         </View>
+        </Link>
       </TouchableOpacity>
 
-    
+      
       <TouchableOpacity onPress={handleprofile} style={[styles.largeButton, styles.bottomrightButton]}>
+      <Link href ="../screens/ProfileScreen">
         <View style={styles.largebuttonContainer}>
+        
           <Image source={ProfileIcon} style={[styles.icon, styles.largeIcon]} />
         </View>
+        </Link>
       </TouchableOpacity>
+      
       
       <SwipeCards
         cards={cards}

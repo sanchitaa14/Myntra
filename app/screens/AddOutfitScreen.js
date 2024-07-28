@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { Navigator } from 'expo-router';
 
 const AddOutfitScreen = ({ navigation }) => {
   const [photo, setPhoto] = useState(null);

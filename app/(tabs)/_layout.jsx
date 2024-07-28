@@ -1,114 +1,121 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
-import {Tabs, Redirect} from 'expo-router'
+import { View, Text, Image } from 'react-native';
+import { Tabs, Redirect } from 'expo-router';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from './home';
+import Profile from './profile';
+import Tinder from './tinder';
+import HomeScreen from './explore';
+import BlogScreen from './blog';
+import { NavigationContainer } from '@react-navigation/native';
 
-const TabIcon = ({icon, color, name, focused}) => {
+const Tab = createBottomTabNavigator();
+
+const TabIcon = ({ icon, color, name, focused }) => {
     return (
-        <View className="items-center justify-center gap-2">
+        <View style={{ alignItems: 'center', justifyContent: 'center', gap: 2 }}>
             <Image
-                source = {{ uri: icon }}
+                source={{ uri: icon }}
                 resizeMode="contain"
-                className="w-6 h-6"
+                style={{ width: 24, height: 24 }}
             />
-            <Text className='text-xs'>
+            <Text style={{ color: focused ? '#FFA001' : '#CDCDE0', fontSize: 10 }}>
                 {name}
             </Text>
         </View>
-    )
-}
-const TabsLayout = () => {
+    );
+};
+
+function AppTabs() {
   return (
     <>
     <Tabs
-        screenOptions={{
-          tabBarActiveTintColor: "#FFA001",
-          tabBarInactiveTintColor: "#CDCDE0",
-          tabBarShowLabel: false,
-          headerShown: false,
-          tabBarStyle: {
-            backgroundColor: "#fff",
-            borderTopWidth: 1,
-            borderTopColor: "#232533",
-            height: 50,
-          },
-        }}
-      >
-       
-        <Tabs.Screen name="home" 
-        options={{
-            title: 'Home',
-            headerStyle: { backgroundColor: '#f4511e' },
-            headerTintColor: '#fff',
-            tabBarIcon: ({color, focused}) => (
-                <TabIcon
-                    icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQmMjoXbgERw9_dWdqL8V05U_0dr2SlXnz4Q&s'
-                    color = {color}
+    screenOptions={{
+        tabBarShowLabel: false
+    }}>
+        <Tabs.Screen
+        name="home"
+        options={
+            {
+                title: 'Home',
+                tabBarIcon: ({ focused }) => (
+                    <TabIcon
+                    icon="https://example.com/home-icon.png"
                     name = "Home"
                     focused={focused}
-                />
-            )
-        }} />
-        <Tabs.Screen name="tinder" 
-        options={{
-            title: 'Tinder',
-            headerStyle: { backgroundColor: '#f4511e' },
-            headerTintColor: '#fff',
-            tabBarIcon: ({color, focused}) => (
-                <TabIcon
-                    icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWI4jyX6SirJEqJ1DWQT6XT1q48m311xu6Dg&s'
-                    color = {color}
-                    name = "Mumble"
-                    focused={focused}
-                />
-            )
-        }} />
-       
-        <Tabs.Screen name="explore" 
-        options={{
-            title: 'Explore',
-            headerStyle: { backgroundColor: '#f4511e' },
-            headerTintColor: '#fff',
-            tabBarIcon: ({color, focused}) => (
-                <TabIcon
-                    icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBJt6ae_wcgPHZ88ERhEjFwZqn_5lhvxYv1g&s'
-                    color = {color}
+                    />
+                    ),
+                headerShown: false,
+            }
+        }
+        />
+        <Tabs.Screen
+        name="explore"
+        options={
+            {
+                title: 'Explore',
+                tabBarIcon: ({ focused }) => (
+                    <TabIcon
+                    icon="https://example.com/home-icon.png"
                     name = "Explore"
                     focused={focused}
-                />
-            )
-        }} />
-        <Tabs.Screen name="blog" 
-        options={{
-            title: 'Blog',
-            headerStyle: { backgroundColor: '#f4511e' },
-            headerTintColor: '#fff',
-            tabBarIcon: ({color, focused}) => (
-                <TabIcon
-                    icon='https://revenuearchitects.com/wp-content/uploads/2017/02/Blog_pic-1030x584.png'
-                    color = {color}
-                    name = "Blogs"
+                    />
+                    ),
+                headerShown: false,
+            }
+        }
+        />
+        <Tabs.Screen
+        name="blog"
+        options={
+            {
+                title: 'Blog',
+                tabBarIcon: ({ focused }) => (
+                    <TabIcon
+                    icon="https://example.com/home-icon.png"
+                    name = "Blog"
                     focused={focused}
-                />
-            )
-        }} />
-        <Tabs.Screen name="profile" 
-        options={{
-            title: 'Profile',
-            headerStyle: { backgroundColor: '#f4511e' },
-            headerTintColor: '#fff',
-            tabBarIcon: ({color, focused}) => (
-                <TabIcon
-                    icon='https://images.rawpixel.com/image_png_social_square/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNjA5LXNvbGlkaWNvbi13LTAwMi1wLnBuZw.png'
-                    color = {color}
+                    />
+                    ),
+                headerShown: false,
+            }
+        }
+        />
+        <Tabs.Screen
+        name="tinder"
+        options={
+            {
+                title: 'Mumble',
+                tabBarIcon: ({ focused }) => (
+                    <TabIcon
+                    icon="https://example.com/home-icon.png"
+                    name = "Mumble"
+                    focused={focused}
+                    />
+                    ),
+                headerShown: false,
+            }
+        }
+        />
+        <Tabs.Screen
+        name="profile"
+        options={
+            {
+                title: 'Profile',
+                tabBarIcon: ({ focused }) => (
+                    <TabIcon
+                    icon="https://example.com/home-icon.png"
                     name = "Profile"
                     focused={focused}
-                />
-            )
-        }} />
-        
+                    />
+                    ),
+                headerShown: false,
+            }
+        }
+        />
     </Tabs>
     </>
-  )
+  );
 }
 
-export default TabsLayout
+export default AppTabs;
