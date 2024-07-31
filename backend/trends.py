@@ -17,19 +17,25 @@ def scrape_blog():
         
         # Extracting image URL
         image_tag = article.find("img")
-        image_url = image_tag["src"] if image_tag and "src" in image_tag.attrs else None
+        image_url = urljoin(url, image_tag["src"]) if image_tag and "src" in image_tag.attrs else None
         
         # Extracting link (href)
         link_tag = article.find("a", href=True)
         link = urljoin(url, link_tag["href"]) if link_tag and "href" in link_tag.attrs else None
+
+        # Extracting id (if exists as an attribute)
+        idd = article.get("id", "No ID Found")
         
         blog_posts.append({
             "title": title,
             "image_url": image_url,
-            "link": link
+            "link": link,
+            "id": idd
         })
 
     return blog_posts
 
 # Example usage:
-
+blog_posts = scrape_blog()
+for post in blog_posts:
+    print(post)

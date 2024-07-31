@@ -1,9 +1,16 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
+import { SafeAreaView } from 'react-native';
 const Profile = () => {
   return (
+    <SafeAreaView style={styles.container}>
     <ScrollView contentContainerStyle={styles.container}>
+    <TouchableOpacity style={styles.discount}>
+        <Text style={styles.discountText}>Flat 200 off</Text>
+        <Text style={styles.discountSubText}>+Free Shipping on First Order</Text>
+        
+      </TouchableOpacity>
+      <Image source={{uri:'https://mir-s3-cdn-cf.behance.net/project_modules/fs/f246fe60055441.5a39f903a99df.jpg'}} style={styles.promoImage}/>
       <View style={styles.profileHeader}>
         <View style={styles.profileCircle}>
           <Text style={styles.profileInitial}>S</Text>
@@ -66,7 +73,7 @@ const Profile = () => {
           <Text style={styles.footerOptionText}>Challenges</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.footerOption}>
-          <Text style={styles.footerOptionText}>Starred Dresses</Text>
+          <Text style={styles.footerOptionText}>Mumble Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.footerOption}>
           <Text style={styles.footerOptionText}>Wishlist</Text>
@@ -80,15 +87,17 @@ const Profile = () => {
       </View>
 
       <TouchableOpacity style={styles.logOut}>
-        <Text style={styles.logOutText}>Log Out</Text>
+        <Text style={styles.logOutText}>Log In</Text>
       </TouchableOpacity>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    
   },
   profileHeader: {
     flexDirection: 'row',
@@ -103,6 +112,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
+  },
+  promoImage: { 
+    width: '100%', 
+    height: 150, 
+    marginVertical: 10 
   },
   profileInitial: {
     fontSize: 24,
@@ -177,6 +191,21 @@ const styles = StyleSheet.create({
   personalLoanSubtext: {
     fontSize: 14,
     color: '#d32f2f',
+  },
+  discount: {
+    padding: 16,
+    backgroundColor: 'yellow',
+    borderRadius: 8,
+    marginBottom: 16,
+  },
+  discountText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'brown',
+  },
+  discountSubtext: {
+    fontSize: 14,
+    color: 'brown',
   },
   footerOptions: {
     marginBottom: 16,

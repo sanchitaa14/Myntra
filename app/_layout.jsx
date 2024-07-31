@@ -68,6 +68,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Stack } from 'expo-router';
+import ProductDetailScreen from './screens/ProductDetail';
 
 function RootLayout() {
   return (
@@ -76,9 +77,21 @@ function RootLayout() {
         <Stack.Screen name ="index" 
         options={
           {
-            headerShown:"false"
+            headerShown:false
           }
         }/>
+        <Stack.Screen
+           name="(auth)"
+           options={{ headerShown: false }}
+         />
+         <Stack.Screen
+           name="(tabs)"
+           options={{ headerShown: false }}
+         />
+         <Stack.Screen
+           name="screens"
+           options={{ headerShown: false }}
+         />
       </Stack>
     
   );

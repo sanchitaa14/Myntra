@@ -1,5 +1,8 @@
+import { useNavigation } from 'expo-router';
 import React from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Header from '../../components/Header';
 
 const DATA = [
   {
@@ -25,6 +28,7 @@ const DATA = [
 ];
 
 const HomeScreen = () => {
+  const navigation = useNavigation()
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.itemContainer}
@@ -43,11 +47,10 @@ const HomeScreen = () => {
   );
 
   return (
+    <SafeAreaView style={styles.container}>
+      <Header/>
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.logo}>Search</Text>
-        <TouchableOpacity style={styles.icon}><Text>🔍</Text></TouchableOpacity>
-      </View>
+      
       <View style={styles.categories}>
         <Text style={styles.category}>All</Text>
         <Text style={styles.category}>Trousers</Text>
@@ -62,6 +65,7 @@ const HomeScreen = () => {
         contentContainerStyle={styles.list}
       />
     </View>
+    </SafeAreaView>
   );
 };
 

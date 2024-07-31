@@ -1,98 +1,86 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import axios from 'axios';
-import { Link } from 'expo-router';
+import React from 'react';
+import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, Linking, ScrollView } from 'react-native';
+import trendsData from '../../trends.json'; // Ensure this path is correct
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Header from '../../components/Header'
 
-const BlogScreen = ({ navigation }) => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    axios.get('http://192.168.29.133:5000/api/blog_posts')
-      .then(response => {
-        setBlogs(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <View style={styles.container}>
-        <Text>Loading...</Text>
-      </View>
-    );
-  }
-
-  if (error) {
-    return (
-      <View style={styles.container}>
-        <Text>Error: {error}</Text>
-      </View>
-    );
-  }
-
+const BlogListScreen = () => {
+  const openLink = (url) => {
+    Linking.openURL(url).catch((err) => console.error("Couldn't load page", err));
+  };
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>
-        Wanna whats hot this season?
-      </Text>
-      <FlatList
-        data={blogs}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.blogContainer}
-          >
-            
-            
-            <Image
-              style={styles.image}
-              source={{ uri: item.image_url }}
-              resizeMode="cover"
-            />
-           
-            <Link href = {item.link}>
-            <Text style={styles.blogTitle}>{item.title}</Text>
-            </Link>
-          </TouchableOpacity>
-        )}
-      />
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <Header />
+
+        <FlatList
+          data={trendsData}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.blogContainer}>
+              <View style={styles.writerContainer}>
+                <Image style={styles.writerImage} source={{ uri: item.writer_profile_image }} />
+                <Text style={styles.writerName}>{item.writer_name}</Text>
+              </View>
+              <Text style={styles.blogTitle}>{item.title}</Text>
+              {item.images && item.images.map((image, index) => (
+                <TouchableOpacity key={index} onPress={() => openLink(image.link)}>
+                  <Image style={styles.image} source={{ uri: image.url }} />
+                </TouchableOpacity>
+              ))}
+              <Text style={styles.blogContent}>{item.content}</Text>
+              {/* Additional elements like product links */}
+            </View>
+          )}
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    backgroundColor: 'yellow',
-    padding: 10,
-    textAlign: 'center',
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   blogContainer: {
-    marginBottom: 16,
+    marginBottom: 20,
+    padding: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    padding: 10,
+    borderBottomColor: '#ddd',
+  },
+  writerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  writerImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 10,
+  },
+  writerName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  blogTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   image: {
     width: '100%',
-    height: 200,
+    height: 300,
     marginBottom: 10,
+    resizeMode: 'cover',
   },
-  blogTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  blogContent: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: '#444',
+  },
+  linkText: {
+    color: 'blue',
+    textDecorationLine: 'underline',
+    marginTop: 10,
   },
 });
 
-export default BlogScreen;
+export default BlogListScreen;

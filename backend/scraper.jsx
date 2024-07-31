@@ -1,37 +1,26 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const baseURL = 'https://www.nykaafashion.com';
-const url = `${baseURL}/style-files/`;
+// Mock data for trends
+const trends = [
+  {
+    id: 1,
+    name: 'Boho Chic',
+    description: 'Embrace the free-spirited vibe with boho chic fashion, featuring flowy dresses and earthy tones.',
+    image: 'https://example.com/images/boho-chic.jpg',
+    products: [
+      { id: 101, name: 'Boho Dress', price: 49.99 },
+      { id: 102, name: 'Fringe Jacket', price: 79.99 }
+    ]
+  },
+  // More trends
+];
 
-const fetchFashionTrends = async () => {
-  try {
-    const { data } = await axios.get(url);
-    const $ = cheerio.load(data);
+app.get('/api/trends', (req, res) => {
+  res.json(trends);
+});
 
-    const trends = [];
-
-    $('.blog-card').each((index, element) => {
-      const title = $(element).find('.blog-title').text().trim();
-      const image = $(element).find('img').attr('data-src');
-      const link = $(element).find('a').attr('href');
-      const fullLink = `${baseURL}${link}`;
-
-      trends.push({ title, image, link: fullLink });
-    });
-
-    for (let trend of trends) {
-      const { data: blogData } = await axios.get(trend.link);
-      const $$ = cheerio.load(blogData);
-      const description = $$('.blog-content').text().trim();
-      trend.description = description;
-    }
-
-    return trends;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return [];
-  }
-};
-
-module.exports = fetchFashionTrends;
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
