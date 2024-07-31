@@ -5,7 +5,7 @@
     "scheme": "myntra",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icons/myntra.png",
+    "icon": "./app/assets/icons/myntra.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/icons/myntra.png",
