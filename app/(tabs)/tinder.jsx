@@ -11,6 +11,7 @@ import SavedIcon from '../assets/saved.png';
 import ProfileIcon from '../assets/profile.png'; 
 import PointsIcon from '../assets/points.png';
 import LogoIcon from '../assets/icon.png';
+import Header from '../../components/Header';
 
 LogBox.ignoreLogs(['Animated: `useNativeDriver` was not specified.']);
 
@@ -92,7 +93,7 @@ const Tinder = () => {
 
  
   const handleSaved = () => {
-    console.log('Saved button pressed');
+    alert('Item saved');
   };
 
   const handlePoints = () => {
@@ -110,6 +111,7 @@ const Tinder = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header/>
       <TouchableOpacity onPress={handleSaved} style={[styles.button, styles.leftButton]}>
         <View style={styles.buttonContainer}>
           <Image source={SavedIcon} style={styles.icon} />
@@ -181,8 +183,7 @@ const Tinder = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding:30,
     backgroundColor: '#ffffff',
   },
   
@@ -228,10 +229,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     padding: 10,
     zIndex: 10,
+    paddingTop:70,
   },
   logo:{
     position: 'absolute',
-    top: 15,
+    top: 45,
     alignSelf: 'center',
     width: 50,
     height: 50,
@@ -245,15 +247,16 @@ const styles = StyleSheet.create({
     right: 20,
   },
   bottomleftButton: {
-    bottom: 60,
+    bottom: 10,
     left: 45,
   },
   bottomrightButton: {
-    bottom: 60,
+    bottom: 10,
     right: 45,
+    
   },
   centerButton: {
-    bottom: 60,
+    bottom: 10,
     alignSelf: 'center',
   },
   buttonContainer: {
@@ -263,7 +266,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#FF69B4'
+    borderColor: '#FF69B4',
   },
   icon: {
     width: 24,
@@ -274,6 +277,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     padding: 10,
     zIndex: 10,
+    
   },
   largebuttonContainer: {
     height: 70,
@@ -283,6 +287,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#FF69B4',
     borderRadius: 40,
+    
   },
   largeIcon: {
     width: 50, 

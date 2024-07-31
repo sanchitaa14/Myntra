@@ -36,15 +36,16 @@ const StoreSelection = () => {
       <Text style={styles.headerText}>Select Your Store</Text>
       {stores.map(store => (
         <TouchableOpacity key={store.id} style={styles.storeContainer} >
-          <Link href="/home">
+          
           <ImageBackground source={{ uri: store.image }} style={styles.storeImage}>
             <View style={styles.overlay}>
-              <Text style={styles.storeName}>{store.name}</Text>
+            <Link href="/home">
+              <Text style={styles.storeName}>{store.name}</Text> </Link>
               <Text style={styles.storeDescription}>{store.description}</Text>
               <Text style={styles.enterText}>Enter Store →</Text>
             </View>
           </ImageBackground>
-          </Link>
+         
         </TouchableOpacity>
       ))}
     </View>

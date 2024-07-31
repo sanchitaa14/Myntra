@@ -1,0 +1,49 @@
+[
+    {
+      "id": 1,
+      "title": "Casual Summer Outfit Ideas",
+      "writer_name": "Jasmine Kapoor",
+      "writer_profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcYfcQHCmU0e_eoJVvJNnwzIM9dlBbWOj1Qg&s",
+      "images": [
+        {
+          "url": "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/17295882/2022/3/9/4c237cbc-e6b2-449b-a47a-e1acd37d3d471646824940676-KASSUALLY-Women-Dresses-8551646824940191-1.jpg",
+          "link": "https://www.myntra.com/dresses/kassually/kassually-women-gorgeous-green-checked-summer-gingham-dress/17295882/buy"
+        },
+        {
+          "url": "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/28550848/2024/3/28/31c7c076-7015-41d4-8781-4db11b64a4da1711624772876ONLYCheckedFitFlareDress1.jpg",
+          "link": "https://www.myntra.com/dresses/only/only-checked-smocked-shirt-collar-pure-cotton-fit--flare-dress/28550848/buy"
+        }
+      ],
+      "content": "As the summer sun blazed on here are my top picks for what kept me fashion ready!",
+      "product_links": [
+        {
+          "text": "Dress",
+          "url": "https://example.com/dress"
+        },
+        {
+          "text": "Bag",
+          "url": "https://example.com/bag"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Midi Dress and Sandals",
+      "writer_name": "Mrunal Mittal",
+      "writer_profile_image": "https://www.dell.com/wp-uploads/2022/11/Human-like-Avatar-3-640x480.jpg",
+      "images": [
+        {
+          "url": "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/21160314/2023/2/4/2b6c1d13-0dbf-41a5-85e3-adc8433185201675482653881-COVER-STORY--Checked-Sheath-Dress-2801675482653291-1.jpg",
+          "link": "https://www.myntra.com/dresses/berrylush/berrylush-women-green--white-abstract-tie-up-neck-bodycon-mini-dress/16215364/buy"
+        }
+      ],
+      "content": "This midi dress is perfect for warm weather and OMG its perfect for me, especially how I bought it with the help of the virtual try on to perfectly match the dress colour to my features.",
+      "product_links": [
+        {
+          "text": "Sandals",
+          "url": "https://example.com/sandals"
+        }
+      ]
+    }
+  ]
+  
