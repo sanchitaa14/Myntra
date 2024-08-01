@@ -49,15 +49,20 @@ const EditProfileScreen = () => {
     const handleAddPreference = () => {
       const trimmedPreference = newPreference.trim();
       if (trimmedPreference && !preferences.includes(trimmedPreference)) {
-        const newPreferenceObj = {
-          tag: trimmedPreference,
-          weight: 1,
-          lastUpdated: new Date().toISOString(),
-        };
-        setPreferences([...preferences, newPreferenceObj]);
+        setPreferences(prevPreferences => [...prevPreferences, trimmedPreference]);
         setNewPreference('');
       }
-  };
+    };
+      //if (trimmedPreference && !preferences.includes(trimmedPreference)) {
+        //const newPreferenceObj = {
+          //tag: trimmedPreference,
+          //weight: 1,
+          //lastUpdated: new Date().toISOString(),
+        //};
+        //setPreferences([...preferences, newPreferenceObj]);
+        //setNewPreference('');
+      //}
+  //};
 
   const handleSaveChanges = async () => {
     if (profile) {
