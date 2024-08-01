@@ -320,6 +320,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 70,
     height: 70,
+    top:580,
     justifyContent: 'center',
     alignItems: 'center',
   },

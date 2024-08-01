@@ -51,7 +51,7 @@ function AppTabs() {
                 title: 'Explore',
                 tabBarIcon: ({ focused }) => (
                     <TabIcon
-                    icon="https://example.com/home-icon.png"
+                    icon="https://th.bing.com/th/id/OIP.aVi5j1VlvkrfgyakjsciGwHaHa?w=195&h=195&c=7&r=0&o=5&dpr=1.5&pid=1.7"
                     name = "Explore"
                     focused={focused}
                     />
@@ -72,7 +72,7 @@ function AppTabs() {
                 title: 'Blog',
                 tabBarIcon: ({ focused }) => (
                     <TabIcon
-                    icon="https://example.com/home-icon.png"
+                    icon="https://th.bing.com/th/id/OIP.azgzGPpY81Qg7Y0ss6rBOwHaHa?w=195&h=195&c=7&r=0&o=5&dpr=1.5&pid=1.7"
                     name = "Blog"
                     focused={focused}
                     />
@@ -92,7 +92,7 @@ function AppTabs() {
                 title: 'Mumble',
                 tabBarIcon: ({ focused }) => (
                     <TabIcon
-                    icon="https://example.com/home-icon.png"
+                    icon="https://th.bing.com/th/id/OIP.eGWr7YUKO8vyjdN_BDYcEQHaJy?rs=1&pid=ImgDetMain"
                     name = "Mumble"
                     focused={focused}
                     />
@@ -108,7 +108,7 @@ function AppTabs() {
                 title: 'Profile',
                 tabBarIcon: ({ focused }) => (
                     <TabIcon
-                    icon="https://example.com/home-icon.png"
+                    icon="https://th.bing.com/th?id=OIP.bJpr9jpclIkXQT-hkkb1KQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"
                     name = "Profile"
                     focused={focused}
                     />
